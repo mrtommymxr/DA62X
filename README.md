@@ -15,8 +15,7 @@ Using a SimConnect module, we are able to control prop RPM based on the power ou
 * Added fuel/Gearbox temperature indications 
 * CAS messages added  
 
-Link:
-https://forums.flightsimulator.com/t/release-working-title-g1000-v0-3-1-9-3-0-compatible/288944/27
+Link:https://github.com/Working-Title-MSFS-Mods/fspackages
  
 4. **Flightmodel**
 * Correct cruise speeds
@@ -50,7 +49,7 @@ And other general improvements
 
 
 Thanks to: 
-Nishmaster for the FADEC
-Friends for helping me with C++
-Uwajimaya for the lighting mod
-Jonasbeaver for his findings on the autopilot and stuff
+Nishmaster for the FADEC    
+Friends for helping me with C++    
+Uwajimaya for the lighting mod    
+Jonasbeaver for his findings on the autopilot and stuff    
