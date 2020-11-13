@@ -1,0 +1,1332 @@
+<WTEngineDisplay>
+	<EngineDisplayPage>
+        <ID>ENGINE</ID>
+		<Title>Engine</Title>
+		<Node>EngineDisplay</Node>
+	</EngineDisplayPage>
+	<EngineDisplayPage>
+        <ID>SYSTEM</ID>
+		<Title>System</Title>
+		<Node>EngineDisplaySystem</Node>
+	</EngineDisplayPage>
+	<EngineDisplayPage>
+        <ID>FUEL</ID>
+		<Title>Fuel</Title>
+		<Node>EngineDisplayFuel</Node>
+		<Button>
+            <Text>DEC FUEL</Text>
+        </Button>
+        <Button>
+            <Text>INC FUEL</Text>
+        </Button>
+		<Button>
+            <Text>RST FUEL</Text>
+        </Button>
+	</EngineDisplayPage>
+	
+	
+	<EngineDisplaySystem>
+	
+		<Gauge><!--Load62_Master-->
+			<Type>DoubleVertical</Type>
+			<Style>
+				<Height>60</Height>
+				<TextIncrement>1</TextIncrement>
+				<ValuePos>Begining</ValuePos>
+				<ForceTextColor>white</ForceTextColor>
+			</Style>
+			<ID>Piston_LoadGauge</ID>
+			<Title></Title>
+			<Unit></Unit>
+			<Minimum>0</Minimum>
+			<Maximum>100</Maximum>
+			<Value>
+				<If>
+				<Condition>
+				<Simvar name="RECIP ENG ENGINE MASTER SWITCH:1" unit="Bool"/>
+				</Condition>
+				<Then>			
+				<Max>
+					<Min>
+						<Multiply>
+							<Divide>
+								<Multiply>
+									<Simvar name="ENG TORQUE:1" unit="Foot pounds"/>
+									<Divide>
+										<Simvar name="GENERAL ENG RPM:1" unit="rpm"/>
+										<Constant>5252</Constant>
+									</Divide>
+									<Constant>550</Constant>
+								</Multiply>
+									<Constant>99000</Constant><!--to fix fuel pump-->
+							</Divide>
+							<Constant>100</Constant>
+						</Multiply>
+						<Constant>100</Constant>
+					</Min>
+					<Constant>0</Constant>
+				</Max>
+				</Then>
+				<Else>
+					<Constant>-100</Constant>
+				</Else>
+				</If>						
+			</Value>
+			<Value2>
+				<If>
+				<Condition>
+				<Simvar name="RECIP ENG ENGINE MASTER SWITCH:2" unit="Bool"/>
+				</Condition>
+				<Then>			
+				<Max>
+					<Min>
+						<Multiply>
+							<Divide>
+								<Multiply>
+									<Simvar name="ENG TORQUE:2" unit="Foot pounds"/>
+									<Divide>
+										<Simvar name="GENERAL ENG RPM:2" unit="rpm"/>
+										<Constant>5252</Constant>
+									</Divide>
+									<Constant>550</Constant>
+								</Multiply>
+									<Constant>99000</Constant><!--to fix fuel pump-->
+							</Divide>
+							<Constant>100</Constant>
+						</Multiply>
+						<Constant>100</Constant>
+					</Min>
+					<Constant>0</Constant>
+				</Max>
+				</Then>
+				<Else>
+					<Constant>-100</Constant>
+				</Else>
+				</If>
+			</Value2>
+			<ColorZone>
+				<Color>white</Color>
+				<Begin>0</Begin>
+				<End>95.25</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>0</Begin>
+				<End>95.25</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>95</Begin>
+				<End>100</End>
+			</ColorZone>			
+			<GraduationLength text="True">20</GraduationLength>
+			<BeginText>Load%</BeginText>
+		</Gauge>
+		
+		<Gauge><!--RPM62_Master-->
+			<Type>DoubleVertical</Type>
+			<Style>
+				<Height>60</Height>
+				<TextIncrement>10</TextIncrement>
+				<ForceTextColor>white</ForceTextColor>
+			</Style>
+			<ID>Piston_RPMGauge</ID>
+			<Title></Title>
+			<Unit></Unit>
+			<Minimum>0</Minimum>
+			<Maximum>3000</Maximum>
+			<Value>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:1" unit="Bool"/>
+				</Condition>
+			<Then>
+				<Simvar name="PROP RPM:1" unit="rpm"/>
+			</Then>
+			<Else>
+				<Constant>-3000</Constant>
+			</Else>
+			</If>
+			</Value>
+			<Value2>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:2" unit="Bool"/>
+				</Condition>
+			<Then>
+				<Simvar name="PROP RPM:2" unit="rpm"/>
+			</Then>
+			<Else>
+				<Constant>-3000</Constant>
+			</Else>
+			</If>
+			</Value2>
+			<ColorZone>
+				<Color>white</Color>
+				<Begin>0</Begin>
+				<End>2205</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>0</Begin>
+				<End>2205</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>2205</Begin>
+				<End>2305</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>2305</Begin>
+				<End>3000</End>
+			</ColorZone>
+			<GraduationLength text="True">600</GraduationLength>
+			<BeginText>RPM</BeginText>
+		</Gauge>
+		
+		<Header><!--Electircal-->
+			<Text>Electrical</Text>
+		</Header>
+		
+		<Gauge><!--Volts-->
+			<Type>DoubleHorizontal</Type>
+			<ID>Voltage_Gauge</ID>
+			<Title></Title>
+			<Unit>Volts</Unit>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>23</Minimum>
+			<Maximum>34</Maximum>
+			<Style>
+					<ForceTextColor>white</ForceTextColor>
+					<SizePercent>100</SizePercent>
+			</Style>
+			<Value>
+					<Simvar name="L:XMLVAR_MAIN_BUS_VOLTAGE_1" unit="volts"/>				
+			</Value>
+			<Value2>
+					<Simvar name="L:XMLVAR_MAIN_BUS_VOLTAGE_2" unit="volts"/>	
+			</Value2>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>23</Begin>
+				<End>24.1</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>24.1</Begin>
+				<End>25</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>25</Begin>
+				<End>30</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>30</Begin>
+				<End>32</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>32</Begin>
+				<End>34</End>
+			</ColorZone>
+			<BeginText>23</BeginText>
+			<EndText>34</EndText>
+			<YellowBlink>
+				<Or>
+					<Greater>
+						<Simvar name="L:XMLVAR_MAIN_BUS_VOLTAGE_1" unit="volts"/>
+						<Constant>30</Constant>
+					</Greater>
+					<Lower>
+						<Simvar name="L:XMLVAR_MAIN_BUS_VOLTAGE_1" unit="volts"/>
+						<Constant>25</Constant>
+					</Lower>
+				</Or>
+			</YellowBlink>
+			<RedBlink>
+				<Or>
+					<Greater>
+						<Simvar name="L:XMLVAR_MAIN_BUS_VOLTAGE_1" unit="volts"/>
+						<Constant>32</Constant>
+					</Greater>
+					<Lower>
+						<Simvar name="L:XMLVAR_MAIN_BUS_VOLTAGE_1" unit="volts"/>
+						<Constant>24.1</Constant>
+					</Lower>
+				</Or>
+			</RedBlink>
+		</Gauge>
+		
+		<Gauge><!--AMPS-->
+			<Type>DoubleHorizontal</Type>
+			<ID>Amperage_Gauge</ID>
+			<Title></Title>
+			<Unit>Amps</Unit>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>0</Minimum>
+			<Maximum>80</Maximum>
+			<Style>
+					<ForceTextColor>white</ForceTextColor>
+					<SizePercent>100</SizePercent>
+					<ValuePos>End</ValuePos>
+			</Style>
+			<Value>
+					<Simvar name="L:XMLVAR_GENALT_BUS_AMPS_1" unit="amps"/>				
+			</Value>
+			<Value2>
+					<Simvar name="L:XMLVAR_GENALT_BUS_AMPS_2" unit="amps"/>	
+			</Value2>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>0</Begin>
+				<End>60</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>60</Begin>
+				<End>70</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>70</Begin>
+				<End>80</End>
+			</ColorZone>
+			<BeginText>0</BeginText>
+			<EndText>80</EndText>
+			<YellowBlink>
+				<Greater>
+					<Simvar name="L:XMLVAR_GENALT_BUS_AMPS_1" unit="amps"/>
+					<Constant>60</Constant>
+				</Greater>
+			</YellowBlink>
+			<RedBlink>
+				<Greater>
+					<Simvar name="L:XMLVAR_GENALT_BUS_AMPS_2" unit="amps"/>	
+					<Constant>70</Constant>
+				</Greater>
+			</RedBlink>
+		</Gauge>
+		
+		<Header><!--Engine-->
+			<Text>Engine</Text>
+		</Header>
+	
+		<Gauge><!--Gearbox_XML-->
+			<Type>DoubleHorizontal</Type>
+			<ID>Piston_CoolantTempGauge</ID>
+			<Title>Gearbox</Title>
+			<Unit></Unit>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>-35</Minimum>
+			<Maximum>145</Maximum>
+			<Style>
+				<ForceTextColor>white</ForceTextColor>
+				<ValuePos>Top</ValuePos>
+				<SizePercent>100</SizePercent>
+			</Style>
+			<Value>
+					<Simvar name="L:XMLVAR_GBOX_TEMPERATURE_1" unit="celsius"/>
+			</Value>
+			<Value2>
+					<Simvar name="L:XMLVAR_GBOX_TEMPERATURE_2" unit="celsius"/>
+			</Value2>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>-35</Begin>
+				<End>-30</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>-30</Begin>
+				<End>35</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>35</Begin>
+				<End>115</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>115</Begin>
+				<End>120</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>120</Begin>
+				<End>145</End>
+			</ColorZone>
+			<BeginText>-35</BeginText>
+			<EndText>145</EndText>
+			<YellowBlink>
+				<Or>
+					<Greater>
+						<Multiply>
+						<Add>
+							<Simvar name="RECIP ENG RADIATOR TEMPERATURE:1" unit="celsius"/>
+							<Simvar name="GENERAL ENG OIL TEMPERATURE:1" unit="celsius"/>
+						</Add>
+							<Constant>0.5</Constant>
+						</Multiply>
+						<Constant>115</Constant>
+					</Greater>
+					<Lower>
+						<Multiply>
+						<Add>
+							<Simvar name="RECIP ENG RADIATOR TEMPERATURE:1" unit="celsius"/>
+							<Simvar name="GENERAL ENG OIL TEMPERATURE:1" unit="celsius"/>
+						</Add>
+							<Constant>0.5</Constant>
+						</Multiply>
+						<Constant>35</Constant>
+					</Lower>
+				</Or>
+			</YellowBlink>
+			<RedBlink>
+				<Or>
+					<Greater>
+						<Multiply>
+						<Add>
+							<Simvar name="RECIP ENG RADIATOR TEMPERATURE:1" unit="celsius"/>
+							<Simvar name="GENERAL ENG OIL TEMPERATURE:1" unit="celsius"/>
+						</Add>
+						<Constant>0.5</Constant>
+						</Multiply>
+						<Constant>120</Constant>
+					</Greater>
+					<Lower>
+						<Multiply>
+						<Add>
+							<Simvar name="RECIP ENG RADIATOR TEMPERATURE:1" unit="celsius"/>
+							<Simvar name="GENERAL ENG OIL TEMPERATURE:1" unit="celsius"/>
+						</Add>
+						<Constant>0.5</Constant>
+						</Multiply>
+						<Constant>-30</Constant>
+					</Lower>
+				</Or>
+			</RedBlink>
+		</Gauge>
+		
+		<Text><!--coolant_XML-->
+			<Left>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:1" unit="Bool"/>
+				</Condition>
+			<Then>
+				<ToFixed precision="0">
+					<Simvar name="RECIP ENG RADIATOR TEMPERATURE:1" unit="celsius"/>
+				</ToFixed>
+			</Then>
+			<Else>
+				<Constant>X</Constant>
+			</Else>
+			</If>	
+			</Left>
+			<Center>Coolant</Center>
+			<Right>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:2" unit="Bool"/>
+				</Condition>
+			<Then>
+				<ToFixed precision="0">
+					<Simvar name="RECIP ENG RADIATOR TEMPERATURE:2" unit="celsius"/>
+				</ToFixed>
+			</Then>
+			<Else>
+				<Constant>X</Constant>
+			</Else>
+			</If>	
+			</Right>
+		</Text>	
+	
+		<Header><!--Oil-->
+			<Text>Oil</Text>
+		</Header>
+		
+		<Text><!--OILtemp_XML-->
+			<Left>
+			<If>
+				<Condition>
+					<Simvar name="L:XMLVAR_OIL_TEMPERATURE_1" unit="Bool"/>
+				</Condition>
+			<Then>
+				<ToFixed precision="0">
+					<Simvar name="ENG OIL TEMPERATURE:1" unit="celsius"/>
+				</ToFixed>
+			</Then>
+			<Else>
+				<Constant>X</Constant>
+			</Else>
+			</If>
+			</Left>		
+			<Center>°C</Center>
+			<Right>
+			<If>
+				<Condition>
+					<Simvar name="L:XMLVAR_OIL_TEMPERATURE_2" unit="Bool"/>
+				</Condition>
+			<Then>
+				<ToFixed precision="0">
+					<Simvar name="ENG OIL TEMPERATURE:2" unit="celsius"/>
+				</ToFixed>
+			</Then>
+			<Else>
+				<Constant>X</Constant>
+			</Else>
+			</If>
+			</Right>
+		</Text>
+		
+		<Text><!--OilPress_XML-->
+			<Left>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:1" unit="Bool"/>
+				</Condition>
+			<Then>
+				<ToFixed precision="1">
+					<Simvar name="L:XMLVAR_OIL_PRESSURE_1" unit="bar"/>
+				</ToFixed>
+			</Then>
+			<Else>
+				<Constant>X</Constant>
+			</Else>
+			</If>
+			</Left>
+			<Center>Bar</Center>
+			<Right>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:2" unit="Bool"/>
+				</Condition>
+			<Then>
+				<ToFixed precision="1">
+					<Simvar name="L:XMLVAR_OIL_PRESSURE_2" unit="bar"/>
+				</ToFixed>
+			</Then>
+			<Else>
+				<Constant>X</Constant>
+			</Else>
+			</If>
+			</Right>
+		</Text>
+		
+		<Gauge><!--Deice-->
+			<Type>Horizontal</Type>
+				<ID>Deice</ID>
+				<Title>Deice Fluid</Title>
+				<Unit></Unit>
+				<Minimum>0</Minimum>
+				<Maximum>9.5</Maximum>
+					<Value>
+						<Simvar name="L:XMLVAR_DEICE_QUANTITY" unit="gallons"/>
+					</Value>
+				<ColorZone>
+				<Color>red</Color>
+					<Begin>0</Begin>
+					<End>1</End>
+				</ColorZone>
+				<ColorZone>
+				<Color>yellow</Color>
+					<Begin>1</Begin>
+					<End>2.9</End>
+				</ColorZone>
+				<ColorZone>
+					<Color>green</Color>
+					<Begin>2.9</Begin>
+					<End>9.5</End>
+				</ColorZone>
+				<BeginText></BeginText>
+				<EndText></EndText>
+				<GraduationLength>2.375</GraduationLength>
+		</Gauge>
+	
+	</EngineDisplaySystem>
+	
+	<EngineDisplayFuel>
+	
+		<Gauge><!--Load62_Master-->
+			<Type>DoubleVertical</Type>
+			<Style>
+				<Height>70</Height>
+				<TextIncrement>1</TextIncrement>
+				<ValuePos>Begining</ValuePos>
+				<ForceTextColor>white</ForceTextColor>
+			</Style>
+			<ID>Piston_LoadGauge</ID>
+			<Title></Title>
+			<Unit></Unit>
+			<Minimum>0</Minimum>
+			<Maximum>100</Maximum>
+			<Value>
+				<If>
+				<Condition>
+				<Simvar name="RECIP ENG ENGINE MASTER SWITCH:1" unit="Bool"/>
+				</Condition>
+				<Then>			
+				<Max>
+					<Min>
+						<Multiply>
+							<Divide>
+								<Multiply>
+									<Simvar name="ENG TORQUE:1" unit="Foot pounds"/>
+									<Divide>
+										<Simvar name="GENERAL ENG RPM:1" unit="rpm"/>
+										<Constant>5252</Constant>
+									</Divide>
+									<Constant>550</Constant>
+								</Multiply>
+									<Constant>99000</Constant><!--to fix fuel pump-->
+							</Divide>
+							<Constant>100</Constant>
+						</Multiply>
+						<Constant>100</Constant>
+					</Min>
+					<Constant>0</Constant>
+				</Max>
+				</Then>
+				<Else>
+					<Constant>-100</Constant>
+				</Else>
+				</If>						
+			</Value>
+			<Value2>
+				<If>
+				<Condition>
+				<Simvar name="RECIP ENG ENGINE MASTER SWITCH:2" unit="Bool"/>
+				</Condition>
+				<Then>			
+				<Max>
+					<Min>
+						<Multiply>
+							<Divide>
+								<Multiply>
+									<Simvar name="ENG TORQUE:2" unit="Foot pounds"/>
+									<Divide>
+										<Simvar name="GENERAL ENG RPM:2" unit="rpm"/>
+										<Constant>5252</Constant>
+									</Divide>
+									<Constant>550</Constant>
+								</Multiply>
+									<Constant>99000</Constant><!--to fix fuel pump-->
+							</Divide>
+							<Constant>100</Constant>
+						</Multiply>
+						<Constant>100</Constant>
+					</Min>
+					<Constant>0</Constant>
+				</Max>
+				</Then>
+				<Else>
+					<Constant>-100</Constant>
+				</Else>
+				</If>
+			</Value2>
+			<ColorZone>
+				<Color>white</Color>
+				<Begin>0</Begin>
+				<End>95.25</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>0</Begin>
+				<End>95.25</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>95.25</Begin>
+				<End>100</End>
+			</ColorZone>
+			<GraduationLength text="True">20</GraduationLength>
+			<BeginText>Load%</BeginText>
+		</Gauge>
+		
+		<Gauge><!--RPM62_Master-->
+			<Type>DoubleVertical</Type>
+			<Style>
+				<Height>70</Height>
+				<TextIncrement>10</TextIncrement>
+				<ForceTextColor>white</ForceTextColor>
+			</Style>
+			<ID>Piston_RPMGauge</ID>
+			<Title></Title>
+			<Unit></Unit>
+			<Minimum>0</Minimum>
+			<Maximum>3000</Maximum>
+			<Value>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:1" unit="Bool"/>
+				</Condition>
+			<Then>
+				<Simvar name="PROP RPM:1" unit="rpm"/>
+			</Then>
+			<Else>
+				<Constant>-3000</Constant>
+			</Else>
+			</If>
+			</Value>
+			<Value2>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:2" unit="Bool"/>
+				</Condition>
+			<Then>
+				<Simvar name="PROP RPM:2" unit="rpm"/>
+			</Then>
+			<Else>
+				<Constant>-3000</Constant>
+			</Else>
+			</If>
+			</Value2>
+			<ColorZone>
+				<Color>white</Color>
+				<Begin>0</Begin>
+				<End>2205</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>0</Begin>
+				<End>2205</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>2205</Begin>
+				<End>2305</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>2305</Begin>
+				<End>3000</End>
+			</ColorZone>
+			<GraduationLength text="True">600</GraduationLength>
+			<BeginText>RPM</BeginText>
+		</Gauge>
+
+        <Header><!--FuelHeader-->
+			<Text>Fuel</Text>			
+		</Header>
+
+		<Text><!--FuelQuantity-->
+			<Left>
+				<ToFixed precision="0">
+					<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallons"/>
+				</ToFixed>
+			</Left>
+			<Center>Gal</Center>
+			<Right>
+				<ToFixed precision="0">
+					<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallons"/>
+				</ToFixed>
+			</Right>
+		</Text>
+		
+		<Text><!--AuxFuel-->
+			<Left>
+				<ToFixed precision="0">
+					<Simvar name="FUEL TANK LEFT AUX QUANTITY" unit="gallons"/>
+				</ToFixed>
+			</Left>
+			<Center>Aux Gal</Center>
+			<Right>
+				<ToFixed precision="0">
+					<Simvar name="FUEL TANK RIGHT AUX QUANTITY" unit="gallons"/>
+				</ToFixed>
+			</Right>
+		</Text>
+		
+		<Text><!--FF_Master-->
+			<Left>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:1" unit="Bool"/>
+				</Condition>
+			<Then>
+				<ToFixed precision="1">
+					<Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+				</ToFixed>
+			</Then>
+			<Else>
+				<Constant>X</Constant>
+			</Else>
+			</If>
+			</Left>
+			<Center>GPH</Center>
+			<Right>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:2" unit="Bool"/>
+				</Condition>
+			<Then>
+				<ToFixed precision="1">
+					<Simvar name="ENG FUEL FLOW GPH:2" unit="gallons per hour"/>
+				</ToFixed>
+			</Then>
+			<Else>
+				<Constant>X</Constant>
+			</Else>
+			</If>
+			</Right>
+		</Text>
+		
+		<Text><!--FuelTemp_XML-->
+			<Left>
+				<ToFixed precision="0">
+				<Substract>
+					<Multiply>
+						<Add>
+							<Simvar name="L:XMLVAR_FUEL_TEMPERATURE" unit="celsius"/>
+							<Constant>30</Constant>
+						</Add>
+						<Constant>1.02</Constant>
+					</Multiply>
+					<Constant>30</Constant>
+				</Substract>
+				</ToFixed>
+			</Left>
+			<Center>°C</Center>
+			<Right>
+				<ToFixed precision="0">
+				<Simvar name="L:XMLVAR_FUEL_TEMPERATURE" unit="celsius"/>
+				</ToFixed>
+			</Right>
+		</Text>
+		
+		<Header><!--FuelCalc-->
+			<Text>Fuel Calc</Text>
+		</Header>
+		
+		<Text><!--GalRem-->
+			<Left>Gal Rem</Left>			
+			<Right>
+				<ToFixed precision="1">
+					<Simvar name="FUEL TOTAL QUANTITY:1" unit="gallon"/>
+				</ToFixed>
+			</Right>
+		</Text>
+		
+		<Text><!--GalUsed-->
+			<Left>Gal Used</Left>			
+			<Right>
+				<ToFixed precision="1">
+					<Substract>
+						<MaxSinceStart>
+							<Simvar name="FUEL TOTAL QUANTITY:1" unit="gallon"/>
+						</MaxSinceStart>
+						<Simvar name="FUEL TOTAL QUANTITY:1" unit="gallon"/>
+					</Substract>
+				</ToFixed>
+			</Right>
+		</Text>
+		
+		<Text><!--Endr-->
+			<Left>Endur</Left>			
+			<Right>
+				<Duration>
+					<Multiply>					
+						<Divide>
+								<Simvar name="FUEL TOTAL QUANTITY:1" unit="gallon"/>
+							<Add>
+								<Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+								<Simvar name="ENG FUEL FLOW GPH:2" unit="gallons per hour"/>
+							</Add>
+						</Divide>
+						<Constant>3600</Constant>						
+					</Multiply>
+				</Duration>
+			</Right>
+		</Text>
+		
+		<Text><!--Range-->
+			<Left>Range NM</Left>			
+			<Right>
+				<If>
+                    <Condition>
+                        <Greater>
+						<Add>
+                            <Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+							<Simvar name="ENG FUEL FLOW GPH:2" unit="gallons per hour"/>
+						</Add>
+                            <Constant>2</Constant>
+                        </Greater>
+                    </Condition>
+				<Then>				
+					<ToFixed precision="0">
+						<Multiply>
+							<Simvar name="GROUND VELOCITY:1" unit="knots"/>
+							<Divide>
+								<Simvar name="FUEL TOTAL QUANTITY:1" unit="gallon"/>							
+								<Add>
+									<Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+									<Simvar name="ENG FUEL FLOW GPH:2" unit="gallons per hour"/>
+								</Add>
+							</Divide>
+						</Multiply>
+				</ToFixed>
+				</Then>
+				<Else>
+						<Constant>X</Constant>
+				</Else>
+				</If>
+			</Right>
+		</Text>
+		
+		<Text></Text>
+		
+		<Text><!--TTltimetext-->
+		<Center>Ttl Time In Svc</Center>
+		</Text>
+		
+		<Header><!--Line-->
+			<Text></Text>
+		</Header>
+		
+		<Text><!--Hrs-->
+			<Center>
+				<ToFixed precision="1">
+					<Simvar name="GENERAL ENG ELAPSED TIME:1" unit="hour"/>
+				</ToFixed>
+			</Center>
+			<Right>Hrs</Right>
+		</Text>
+		
+	</EngineDisplayFuel>
+
+	<!-- Engine Display -->
+
+  <EngineDisplay>
+	
+		<Gauge><!--Load62_Master-->
+			<Type>DoubleVertical</Type>
+			<Style>
+				<Height>70</Height>
+				<TextIncrement>1</TextIncrement>
+				<ValuePos>Begining</ValuePos>
+				<ForceTextColor>white</ForceTextColor>
+			</Style>
+			<ID>Piston_LoadGauge</ID>
+			<Title></Title>
+			<Unit></Unit>
+			<Minimum>0</Minimum>
+			<Maximum>100</Maximum>
+			<Value>
+				<If>
+				<Condition>
+				<Simvar name="RECIP ENG ENGINE MASTER SWITCH:1" unit="Bool"/>
+				</Condition>
+				<Then>			
+				<Max>
+					<Min>
+						<Multiply>
+							<Divide>
+								<Multiply>
+									<Simvar name="ENG TORQUE:1" unit="Foot pounds"/>
+									<Divide>
+										<Simvar name="GENERAL ENG RPM:1" unit="rpm"/>
+										<Constant>5252</Constant>
+									</Divide>
+									<Constant>550</Constant>
+								</Multiply>
+									<Constant>99000</Constant><!--to fix fuel pump-->
+							</Divide>
+							<Constant>100</Constant>
+						</Multiply>
+						<Constant>100</Constant>
+					</Min>
+					<Constant>0</Constant>
+				</Max>
+				</Then>
+				<Else>
+					<Constant>-100</Constant>
+				</Else>
+				</If>						
+			</Value>
+			<Value2>
+				<If>
+				<Condition>
+				<Simvar name="RECIP ENG ENGINE MASTER SWITCH:2" unit="Bool"/>
+				</Condition>
+				<Then>			
+				<Max>
+					<Min>
+						<Multiply>
+							<Divide>
+								<Multiply>
+									<Simvar name="ENG TORQUE:2" unit="Foot pounds"/>
+									<Divide>
+										<Simvar name="GENERAL ENG RPM:2" unit="rpm"/>
+										<Constant>5252</Constant>
+									</Divide>
+									<Constant>550</Constant>
+								</Multiply>
+									<Constant>99000</Constant><!--to fix fuel pump-->
+							</Divide>
+							<Constant>100</Constant>
+						</Multiply>
+						<Constant>100</Constant>
+					</Min>
+					<Constant>0</Constant>
+				</Max>
+				</Then>
+				<Else>
+					<Constant>-100</Constant>
+				</Else>
+				</If>
+			</Value2>
+			<ColorZone>
+				<Color>white</Color>
+				<Begin>0</Begin>
+				<End>95.25</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>0</Begin>
+				<End>95.25</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>95</Begin>
+				<End>100</End>
+			</ColorZone>
+			<GraduationLength text="True">20</GraduationLength>
+			<BeginText>Load%</BeginText>
+		</Gauge>
+		
+		<Gauge><!--RPM62_Master-->
+			<Type>DoubleVertical</Type>
+			<Style>
+				<Height>70</Height>
+				<TextIncrement>10</TextIncrement>
+				<ForceTextColor>white</ForceTextColor>
+			</Style>
+			<ID>Piston_RPMGauge</ID>
+			<Title></Title>
+			<Unit></Unit>
+			<Minimum>0</Minimum>
+			<Maximum>3000</Maximum>
+			<Value>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:1" unit="Bool"/>
+				</Condition>
+			<Then>
+				<Simvar name="PROP RPM:1" unit="rpm"/>
+			</Then>
+			<Else>
+				<Constant>-3000</Constant>
+			</Else>
+			</If>
+			</Value>
+			<Value2>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:2" unit="Bool"/>
+				</Condition>
+			<Then>
+				<Simvar name="PROP RPM:2" unit="rpm"/>
+			</Then>
+			<Else>
+				<Constant>-3000</Constant>
+			</Else>
+			</If>
+			</Value2>
+			<ColorZone>
+				<Color>white</Color>
+				<Begin>0</Begin>
+				<End>2205</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>0</Begin>
+				<End>2205</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>2205</Begin>
+				<End>2305</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>2305</Begin>
+				<End>3000</End>
+			</ColorZone>
+			<GraduationLength text="True">600</GraduationLength>
+			<BeginText>RPM</BeginText>
+		</Gauge>
+		
+		<Text><!--FFLine-->
+			<Center>Fuel Flow</Center>
+		</Text>
+		
+		<Text><!--FF_Master-->
+			<Left>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:1" unit="Bool"/>
+				</Condition>
+			<Then>
+				<ToFixed precision="1">
+					<Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+				</ToFixed>
+			</Then>
+			<Else>
+				<Constant>X</Constant>
+			</Else>
+			</If>
+			</Left>
+			<Center>GPH</Center>
+			<Right>
+			<If>
+				<Condition>
+					<Simvar name="RECIP ENG ENGINE MASTER SWITCH:2" unit="Bool"/>
+				</Condition>
+			<Then>
+				<ToFixed precision="1">
+					<Simvar name="ENG FUEL FLOW GPH:2" unit="gallons per hour"/>
+				</ToFixed>
+			</Then>
+			<Else>
+				<Constant>X</Constant>
+			</Else>
+			</If>
+			</Right>
+		</Text>
+		
+		<Gauge><!--Oiltemp_XML-->
+			<Type>DoubleHorizontal</Type>
+			<ID>Piston_OilTempGauge</ID>
+			<Title>Oil Temp</Title>
+			<Unit></Unit>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>-40</Minimum>
+			<Maximum>150</Maximum> 
+			<Value>
+				<Simvar name="L:XMLVAR_OIL_TEMPERATURE_1" unit="celsius"/>
+			</Value>
+			<Value2>
+				<Simvar name="L:XMLVAR_OIL_TEMPERATURE_2" unit="celsius"/>
+			</Value2>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>-40</Begin>
+				<End>-30</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>-30</Begin>
+				<End>50</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>50</Begin>
+				<End>135</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>135</Begin>
+				<End>139</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>139</Begin>
+				<End>150</End>
+			</ColorZone>
+			<BeginText></BeginText>
+			<EndText></EndText>
+		</Gauge>
+		
+		<Gauge><!--Oilpressure_XML-->
+			<Type>DoubleHorizontal</Type>
+			<ID>Piston_OilPressGauge</ID>
+			<Title>Oil Press</Title>
+			<Unit></Unit>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>0</Minimum>
+			<Maximum>6.9</Maximum>
+			<Value>
+				<Simvar name="L:XMLVAR_OIL_PRESSURE_1" unit="bar"/>
+			</Value>
+			<Value2>
+				<Simvar name="L:XMLVAR_OIL_PRESSURE_2" unit="bar"/>
+			</Value2>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>0</Begin>
+				<End>0.9</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>0.9</Begin>
+				<End>2.5</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>2.5</Begin>
+				<End>6</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>6</Begin>
+				<End>6.5</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>6.5</Begin>
+				<End>6.9</End>
+			</ColorZone>
+			<BeginText></BeginText>
+			<EndText></EndText>
+		</Gauge>
+		
+		<Gauge><!--coolanttemp_XML-->
+			<Type>DoubleHorizontal</Type>
+			<ID>Piston_CoolantTempGauge</ID>
+			<Title>Coolant Temp</Title>
+			<Unit></Unit>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>-40</Minimum>
+			<Maximum>150</Maximum>
+			<Value>
+				<Simvar name="L:XMLVAR_RADIATOR_TEMPERATURE_1" unit="celsius"/>
+			</Value>
+			<Value2>
+				<Simvar name="L:XMLVAR_RADIATOR_TEMPERATURE_2" unit="celsius"/>
+			</Value2>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>-40</Begin>
+				<End>-30</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>-30</Begin>
+				<End>60</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>60</Begin>
+				<End>95</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>95</Begin>
+				<End>100</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>100</Begin>
+				<End>150</End>
+			</ColorZone>
+			<BeginText></BeginText>
+			<EndText></EndText>
+		</Gauge>
+		
+		<Gauge><!--FUELTEMP_XML-->
+			<Type>DoubleHorizontal</Type>
+			<ID>Piston_FuelTempGauge</ID>
+			<Title>Fuel Temp</Title>
+			<Unit></Unit>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>-30</Minimum>
+			<Maximum>65</Maximum>
+			<Value>	
+				<Substract>
+					<Multiply>
+						<Add>
+							<Simvar name="L:XMLVAR_FUEL_TEMPERATURE" unit="celsius"/>
+							<Constant>30</Constant>
+						</Add>
+						<Constant>1.02</Constant>
+					</Multiply>
+					<Constant>30</Constant>
+				</Substract>
+			</Value>
+			<Value2>		
+				<Simvar name="L:XMLVAR_FUEL_TEMPERATURE" unit="celsius"/>
+			</Value2>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>-30</Begin>
+				<End>-25</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>-25</Begin>
+				<End>-20</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>-20</Begin>
+				<End>55</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>yellow</Color>
+				<Begin>55</Begin>
+				<End>60</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>60</Begin>
+				<End>65</End>
+			</ColorZone>
+			<BeginText></BeginText>
+			<EndText></EndText>
+		</Gauge>
+		
+		<Gauge><!--Fuel-->
+			<Type>DoubleHorizontal</Type>
+			<ID>Piston_FuelGauge</ID>
+			<Title>Fuel Qty</Title>
+			<Unit>GAL</Unit>
+			<CursorText>L</CursorText>
+			<CursorText2>R</CursorText2>
+			<Minimum>0</Minimum>
+			<Maximum>25</Maximum>
+			<Value>
+				<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallons"/>
+			</Value>
+			<Value2>
+				<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallons"/>
+			</Value2>
+			<ColorZone>
+				<Color>red</Color>
+				<Begin>0</Begin>
+				<End>1</End>
+			</ColorZone>
+			<ColorZone>
+				<Color>green</Color>
+				<Begin>1</Begin>
+				<End>25</End>
+			</ColorZone>
+			<GraduationLength text="True">5</GraduationLength>
+		</Gauge>
+		
+		<Text><!--AuxFuel-->
+			<Left>
+				<ToFixed precision="0">
+					<Simvar name="FUEL TANK LEFT AUX QUANTITY" unit="gallons"/>
+				</ToFixed>
+			</Left>
+			<Center>Aux Fuel</Center>
+			<Right>
+				<ToFixed precision="0">
+					<Simvar name="FUEL TANK RIGHT AUX QUANTITY" unit="gallons"/>
+				</ToFixed>
+			</Right>
+		</Text>
+		
+	</EngineDisplay>
+  
+</WTEngineDisplay>
