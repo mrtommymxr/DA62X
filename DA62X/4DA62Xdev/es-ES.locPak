@@ -1,0 +1,10 @@
+{
+  "LocalisationPackage": {
+    "Language": "es-ES",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "Diamond Aircraft Industries anunció por primera vez el desarrollo de una nueva aeronave ligera bimotor a principios de 2012 y lanzó el prototipo DA52 seis meses después. Pasarían otros tres años antes de que la versión de producción, designada como DA62, debutara a finales de 2015. La demanda del nuevo avión fue lo suficientemente importante como para que Diamond acelerara la producción inmediatamente.<\/br><\/br>Con una elegante célula de compuesto de carbono, aerodinámica avanzada, tecnología de seguridad de vanguardia, una serie de comodidades en la cabina y asientos para 5-7 ocupantes, el DA62 es conocido cariñosamente como el SUV volador de lujo de Diamond, haciendo hincapié en el aspecto deportivo.<\/br><\/br>El DA62 está equipado con dos motores Austro AE330 con FADEC refrigerados por líquido, de cuatro cilindros y cuatro tiempos de encendido por compresión, que utilizan combustible Jet-A y entregan unos impresionantes 180 caballos. Junto con las hélices hidráulicas de velocidad MT constante de tres aspas, el DA62 ofrece a los pilotos un excelente rendimiento y una dinámica de vuelo superior para una experiencia de aviación suave, silenciosa y emocionante.<\/br><\/br>Por si fuera poco, el DA62 tiene un ala parecida a la de un velero planeador que contribuye a una maniobrabilidad excepcional, que hace que el avión se sienta más ligero y ágil de lo que se indica en cualquier hoja de estadísticas. Y gracias a su largo tren de aterrizaje, el DA62 se eleva proporcionando una visibilidad excepcional a través de una genuina cubierta de plexiglás en la cabina, una perspectiva adecuada para cualquier aventura de tu lista.",
+      "AIRCRAFT.UI_MANUFACTURER": "Aeronave Diamond",
+      "AIRCRAFT.UI_MODEL": "DA62"
+    }
+  }
+}

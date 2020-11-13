@@ -1,0 +1,10 @@
+{
+  "LocalisationPackage": {
+    "Language": "de-DE",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "Diamond Aircraft Industries kündigte 2012 die Entwicklung eines Leichtflugzeugs mit zwei Turbinen an. Hieraufhin wurde 6 Monate später ein Prototyp veröffentlicht: die DA52. Bevor letztendlich die fertige Version, die DA62, ihr Debut gab, dauerte es noch weitere drei Jahre. Dabei war die Anfrage nach der neuen Maschine so hoch, dass Diamond unverzüglich die Produktion erhöhte.<\/br><\/br>Mit einer geschmeidigen Kompositflugzeugzelle, einer verbesserten Aerodynamik, Technologie der neuesten Generation, einer ganzen Reihe an Cockpit-Annehmlichkeiten sowie Sitzgelegenheiten für 5–7 Personen wird die DA62 heute auch liebevoll als Diamonds „Fliegender, luxuriöser SUV“ bezeichnet, wobei die Betonung auf „sportlich“ liegt.<\/br><\/br>Die DA62 kommt mit einem Zwillings-Austro-AE330-Motor daher. Dieser verwendet ein digitales, elektronisches Triebwerksregelsystem, wird flüssigkeitsgekühlt, besitzt vier Zylinder und bedient sich eines Jettreibstoff verbrennenden Viertakttriebwerks mit Selbstzündung, um beeindruckende 180 PS zu erreichen. In Kombination mit dreiblättrigen, hydraulischen MT-Festdrehzahlpropellern belohnt die DA62 Piloten mit einer exzellenten Flugleistung und einer überlegenen Flugdynamik, was für ein ebenso sanftes wie ruhiges, wenngleich aufregendes, Flugvergnügen sorgt.<\/br><\/br>Als ob das noch nicht genug wäre, besitzt die DA62 ferner segelflugzeugartige Flügel, die zu ihrer außergewöhnlichen Manövrierbarkeit beitragen, indem sie das Flugzeug gefühlt leichter und wendiger macht, als man anhand der Dimensionen vermuten würde. Und dank seiner langen Fahrwerksbeine sitzt die DA62 zudem hoch genug, um eine beeindruckende Sicht durch eine das Cockpit umgebende Plexiglaswand zu ermöglichen – eine passende Aussicht für jeden Abenteurer der Lüfte.",
+      "AIRCRAFT.UI_MANUFACTURER": "Diamond Aircraft",
+      "AIRCRAFT.UI_MODEL": "DA62"
+    }
+  }
+}

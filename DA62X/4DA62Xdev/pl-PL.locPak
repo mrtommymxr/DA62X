@@ -1,0 +1,10 @@
+{
+  "LocalisationPackage": {
+    "Language": "pl-PL",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "Na początku 2012 roku firma Diamond Aircraft Industries ogłosiła rozpoczęcie prac nad nowym samolotem lekkim z dwoma silnikami. Prototyp nowego modelu DA52 ujrzał światło dzienne sześć miesięcy później, ale musiały minąć jeszcze trzy lata, zanim oznaczona symbolem DA62 wersja przeznaczona do produkcji seryjnej mogła wreszcie zadebiutować. Stało się to w 2015 roku a popyt na nową maszynę okazał się tak wielki, że firma Diamond natychmiast zwiększyła jej produkcję.<\/br><\/br>Model DA62 jest często określany mianem „latającego luksusowego samolotu sportowego” (z naciskiem na słowo „sportowego”), a to dzięki opływowym kształtom płatowca wykonanego z materiałów kompozytowych wzmocnionych włóknem węglowym, zaawansowanym elementom aerodynamicznym, najnowocześniejszym rozwiązaniom związanym z bezpieczeństwem, szeregowi udogodnień w kokpicie oraz siedzeniom dla 5-7 osób.<\/br><\/br>DA62 wyposażony jest w dwa sterowane za pomocą systemu FADEC silniki Austro AE330 – chłodzone cieczą, czterocylindrowe i czterosuwowe jednostki napędowe o zapłonie samoczynnym, zasilane paliwem Jet-A i generujące imponującą moc 180 koni mechanicznych. Silniki te obracają produkowane przez firmę MT trójłopatowe hydrauliczne śmigła o stałej prędkości obrotu, dzięki którym pilot siedzący za sterami modelu DA62 może doświadczyć wspaniałych osiągów oraz wyśmienitych właściwości dynamicznych tej maszyny podczas płynnego i spokojnego, ale zarazem ekscytującego przelotu.<\/br><\/br>Jakby tego było mało, model DA62 posiada płat nośny przypominający te stosowane w szybowcach, co nie pozostaje bez wpływu na zwrotność samolotu i sprawia, że maszyna wydaje się lżejsza i zwinniejsza niż wskazywałyby na to jej parametry. Dzięki długim goleniom model DA62 osadzony jest wysoko, co w połączeniu z pleksiglasową osłoną kabiny zapewnia fantastyczną widzialność i gwarantuje niezapomniane wrażenia podczas lotów krajobrazowych.",
+      "AIRCRAFT.UI_MANUFACTURER": "Diamond Aircraft",
+      "AIRCRAFT.UI_MODEL": "DA62"
+    }
+  }
+}
