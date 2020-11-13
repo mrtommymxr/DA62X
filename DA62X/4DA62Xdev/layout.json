@@ -1,0 +1,274 @@
+{
+  "content": [
+    {
+      "path": "de-DE.locPak",
+      "size": 2027,
+      "date": 132422003178671984
+    },
+    {
+      "path": "en-US.locPak",
+      "size": 1649,
+      "date": 132422003178711877
+    },
+    {
+      "path": "es-ES.locPak",
+      "size": 1879,
+      "date": 132422003178751949
+    },
+    {
+      "path": "fr-FR.locPak",
+      "size": 1910,
+      "date": 132422003178781823
+    },
+    {
+      "path": "it-IT.locPak",
+      "size": 1910,
+      "date": 132422003178811737
+    },
+    {
+      "path": "pl-PL.locPak",
+      "size": 2225,
+      "date": 132422003179001656
+    },
+    {
+      "path": "pt-BR.locPak",
+      "size": 1886,
+      "date": 132422003179031569
+    },
+    {
+      "path": "ru-RU.locPak",
+      "size": 2843,
+      "date": 132422003201432485
+    },
+    {
+      "path": "Effects/LIGHT_DA62_LandingBelly.fx",
+      "size": 1232,
+      "date": 132462645869192976
+    },
+    {
+      "path": "Effects/LIGHT_DA62_NavigationGreen.fx",
+      "size": 1158,
+      "date": 132461014955965030
+    },
+    {
+      "path": "Effects/LIGHT_DA62_NavigationRed.fx",
+      "size": 1155,
+      "date": 132461014955994946
+    },
+    {
+      "path": "Effects/LIGHT_DA62_NavigationWhite.fx",
+      "size": 1353,
+      "date": 132461769230083964
+    },
+    {
+      "path": "Effects/LIGHT_DA62_StrobeSimple.fx",
+      "size": 4445,
+      "date": 132463431356467159
+    },
+    {
+      "path": "Effects/LIGHT_DA62_TaxiBelly.fx",
+      "size": 1282,
+      "date": 132462645869242560
+    },
+    {
+      "path": "Effects/LIGHT_DA62_vLandingBelly.fx",
+      "size": 1229,
+      "date": 132484030134634267
+    },
+    {
+      "path": "Effects/LIGHT_DA62_vTaxiBelly.fx",
+      "size": 1281,
+      "date": 132484066306191878
+    },
+    {
+      "path": "Effects/LIGHT_DA62_Wing.fx",
+      "size": 1338,
+      "date": 132467811410746945
+    },
+    {
+      "path": "Effects/texture/FX_ulm01.PNG.dds",
+      "size": 87556,
+      "date": 132456699569509610
+    },
+    {
+      "path": "Effects/texture/fx_ulm01.png.DDS.FLAGS",
+      "size": 21,
+      "date": 132447569545285976
+    },
+    {
+      "path": "Effects/texture/FX_ulm01.PNG.DDS.json",
+      "size": 144,
+      "date": 132447569545285976
+    },
+    {
+      "path": "Effects/texture/FX_ulm02.PNG.dds",
+      "size": 87556,
+      "date": 132455783006451887
+    },
+    {
+      "path": "Effects/texture/fx_ulm02.png.DDS.FLAGS",
+      "size": 21,
+      "date": 132447569545285976
+    },
+    {
+      "path": "Effects/texture/FX_ulm02.PNG.DDS.json",
+      "size": 144,
+      "date": 132447569545285976
+    },
+    {
+      "path": "Effects/texture/FX_ulm03.PNG.dds",
+      "size": 87556,
+      "date": 132461719108903891
+    },
+    {
+      "path": "Effects/texture/fx_ulm03.png.DDS.FLAGS",
+      "size": 21,
+      "date": 132447569545285976
+    },
+    {
+      "path": "Effects/texture/FX_ulm03.PNG.DDS.json",
+      "size": 144,
+      "date": 132447569545285976
+    },
+    {
+      "path": "Effects/texture/FX_ulm04.PNG.DDS",
+      "size": 87556,
+      "date": 132458776466613442
+    },
+    {
+      "path": "Effects/texture/fx_ulm04.png.DDS.FLAGS",
+      "size": 21,
+      "date": 132447569545285976
+    },
+    {
+      "path": "Effects/texture/FX_ulm04.PNG.DDS.json",
+      "size": 144,
+      "date": 132447569545285976
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/NavSystems/AS1000/MFD/DA62ECU.wasm",
+      "size": 53090,
+      "date": 132487864668230528
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/NavSystems/AS1000/MFD/Full_DA62ECU.wasm",
+      "size": 62029,
+      "date": 132465394875486546
+    },
+    {
+      "path": "ModelBehaviorDefs/DA62X/CustomDA62Logic.xml",
+      "size": 10157,
+      "date": 132493951382949438
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/ai.cfg",
+      "size": 849,
+      "date": 132488012500681295
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/aircraft.cfg",
+      "size": 3580,
+      "date": 132475033096757531
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/Approach.flt",
+      "size": 3192,
+      "date": 132482651562728538
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/apron.flt",
+      "size": 3252,
+      "date": 132482656758616088
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/Climb.flt",
+      "size": 3195,
+      "date": 132482657108420868
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/cockpit.cfg",
+      "size": 5247,
+      "date": 132481962661054063
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/Cruise.flt",
+      "size": 3200,
+      "date": 132482655738414792
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/engines.cfg",
+      "size": 11708,
+      "date": 132493315429031044
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/Final.flt",
+      "size": 3208,
+      "date": 132482657747730312
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/flight_model.cfg",
+      "size": 17719,
+      "date": 132490687066792073
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/hangar.flt",
+      "size": 3105,
+      "date": 132483627847394246
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/runway.FLT",
+      "size": 3115,
+      "date": 132493449356682473
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/systems.cfg",
+      "size": 13202,
+      "date": 132489034220857856
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/taxi.flt",
+      "size": 3092,
+      "date": 132482656099540724
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/model/DA62_INTERIOR.xml",
+      "size": 36819,
+      "date": 132493464949286183
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/panel/PANEL.CFG",
+      "size": 1443,
+      "date": 132464629184226524
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/panel/panel.xml",
+      "size": 30484,
+      "date": 132493440727241372
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/panel/WTEngineDisplay.xml",
+      "size": 30971,
+      "date": 132493449925822481
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/TEXTURE/DA62_AIRFRAME_PROP_ALBD.PNG.DDS",
+      "size": 1048704,
+      "date": 132475178049132426
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/TEXTURE/DA62_AIRFRAME_PROP_ALBD.PNG.DDS.json",
+      "size": 102,
+      "date": 132472263907511127
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/TEXTURE/thumbnail.JPG",
+      "size": 130326,
+      "date": 132443153798896051
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_DA62/TEXTURE/thumbnail_small.JPG",
+      "size": 130326,
+      "date": 132443153798896051
+    }
+  ]
+}
